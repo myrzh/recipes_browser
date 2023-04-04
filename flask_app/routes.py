@@ -1,6 +1,11 @@
 import flask
+import os
 
-from .data import db_session
+if os.name == "posix":
+    from .data import db_session
+elif os.name == "nt":
+    from data import db_session
+
 
 
 blueprint = flask.Blueprint(

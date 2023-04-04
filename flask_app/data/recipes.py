@@ -19,7 +19,7 @@ class Recipes(SqlAlchemyBase):
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, 
                                      default=datetime.now)
 
-    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
+    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"))
 
     list_of_products = sqlalchemy.Column(sqlalchemy.VARCHAR, nullable=True)
 

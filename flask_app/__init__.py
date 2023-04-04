@@ -5,7 +5,7 @@ from flask import Flask
 if os.name == "posix":
     from .data import db_session
     from .routes import blueprint
-if os.name == "nt":
+elif os.name == "nt":
     from data import db_session
     from routes import blueprint
 
