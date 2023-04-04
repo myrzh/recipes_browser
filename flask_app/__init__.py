@@ -3,11 +3,13 @@ import os
 from flask import Flask
 
 if os.name == "posix":
-    from .data import db_session
-    from .routes import blueprint
-elif os.name == "nt":
-    from data import db_session
-    from routes import blueprint
+    os.path.join(".")
+#     from data import db_session
+#     from routes import blueprint
+# elif os.name == "nt":
+
+from data import db_session
+from routes import blueprint
 
 
 app = Flask(__name__)
