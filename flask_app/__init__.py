@@ -1,10 +1,17 @@
+import os
+
 from flask import Flask
 
-from data import db_session
-# from routes import blueprint
+if os.name == "posix":
+    from .data import db_session
+    from .routes import blueprint
+if os.name == "nt":
+    from data import db_session
+    from routes import blueprint
+
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config["SECRET_KEY"] = "yandexlyceum_secret_key"
 
 
 def main():
@@ -13,5 +20,5 @@ def main():
     app.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
