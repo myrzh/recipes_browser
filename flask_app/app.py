@@ -1,8 +1,9 @@
 from flask import Flask
 import os
 
-if os.name == "posix": os.path.join(".")
-        
+if os.name == "posix":
+    os.path.join(".")
+
 
 from data import db_session
 from routes import blueprint

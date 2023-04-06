@@ -5,19 +5,16 @@ from .db_session import SqlAlchemyBase
 
 
 class User(SqlAlchemyBase):
-    __tablename__ = 'user'
+    __tablename__ = "user"
 
-    id = sqlalchemy.Column(sqlalchemy.Integer, 
-                           primary_key=True, autoincrement=True)
-    
+    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
-    email = sqlalchemy.Column(sqlalchemy.String, 
-                              index=True, unique=True, nullable=True)
-    
+    email = sqlalchemy.Column(sqlalchemy.String, index=True, unique=True, nullable=True)
+
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
-    created_date = sqlalchemy.Column(sqlalchemy.DateTime, 
-                                     default=datetime.datetime.now)
+    created_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
 
-    recipes = orm.relationship("Recipes", back_populates='user')
+    recipes = orm.relationship("Recipes", back_populates="user")
