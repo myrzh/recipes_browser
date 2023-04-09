@@ -15,5 +15,3 @@ class Comments(SqlAlchemyBase):
     recipe_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("recipes.id"))
 
     text = sqlalchemy.Column(sqlalchemy.VARCHAR, nullable=True)
-
-    user = orm.relationship("User")
