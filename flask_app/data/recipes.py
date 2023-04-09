@@ -10,6 +10,8 @@ class Recipes(SqlAlchemyBase):
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
     title = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    
+    grade = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
 
     text_content = sqlalchemy.Column(sqlalchemy.VARCHAR, nullable=True)
 
@@ -17,8 +19,10 @@ class Recipes(SqlAlchemyBase):
 
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now)
 
-    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"))
+    liked_users_ids = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"), nullable=True)
+
+    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
 
     list_of_products = sqlalchemy.Column(sqlalchemy.VARCHAR, nullable=True)
 
-    user = orm.relationship("User")
+    comments = orm.relationship("Comments", backref="recipes")

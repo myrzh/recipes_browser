@@ -4,7 +4,6 @@ import os
 if os.name == "posix":
     os.path.join(".")
 
-
 from data import db_session
 from routes import blueprint
 
@@ -14,5 +13,5 @@ app.config["SECRET_KEY"] = "yandexlyceum_secret_key"
 
 def main():
     db_session.global_init("flask_app/db/db.sqlite")
-    app.register_blueprint
-    app.run()
+    app.register_blueprint(blueprint)
+    app.run(debug=True)
