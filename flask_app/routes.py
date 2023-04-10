@@ -5,14 +5,10 @@ from forms.regiter_login import LoginForm
 from data.users import Users
 from data import db_session
 
-blueprint = Blueprint(
-    'routes',
-    __name__,
-    template_folder='templates'
-)
+blueprint = Blueprint("routes", __name__, template_folder="templates")
 
 
-@blueprint.route('/login', methods=['GET', 'POST'])
+@blueprint.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -21,7 +17,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect("/")
-        return render_template('login.html',
-                               message="Неправильный логин или пароль",
-                               form=form)
-    return render_template('login.html', title='Авторизация', form=form)
+        return render_template(
+            "login.html", message="Неправильный логин или пароль", form=form
+        )
+    return render_template("login.html", title="Авторизация", form=form)

@@ -16,11 +16,11 @@ class Recipes(SqlAlchemyBase):
     text_content = sqlalchemy.Column(sqlalchemy.VARCHAR(), nullable=True)
 
     photos_paths = sqlalchemy.Column(sqlalchemy.VARCHAR(), nullable=True)
-    
+
     list_of_products = sqlalchemy.Column(sqlalchemy.VARCHAR(), nullable=True)
-    
+
     is_private = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, default=False)
-    
+
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now)
 
     liked_users_ids = sqlalchemy.Column(

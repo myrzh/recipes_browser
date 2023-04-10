@@ -16,13 +16,15 @@ class Users(SqlAlchemyBase):
 
     admin = sqlalchemy.Column(sqlalchemy.Boolean, nullable=True)
 
-    email = sqlalchemy.Column(sqlalchemy.VARCHAR(40), index=True, unique=True, nullable=True)
+    email = sqlalchemy.Column(
+        sqlalchemy.VARCHAR(40), index=True, unique=True, nullable=True
+    )
 
     hashed_password = sqlalchemy.Column(sqlalchemy.VARCHAR, nullable=True)
 
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
-    
-    recipes = orm.relationship("Recipes", back_populates='users')
+
+    recipes = orm.relationship("Recipes", back_populates="users")
 
     comments = orm.relationship("Comments", back_populates="users")
 

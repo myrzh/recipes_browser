@@ -12,6 +12,8 @@ class Comments(SqlAlchemyBase):
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
 
-    recipe_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("recipes.id"))
+    recipe_id = sqlalchemy.Column(
+        sqlalchemy.Integer, sqlalchemy.ForeignKey("recipes.id")
+    )
 
     text = sqlalchemy.Column(sqlalchemy.VARCHAR(), nullable=True)
