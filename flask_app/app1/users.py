@@ -43,3 +43,4 @@ class LoginResource(Resource):
             return abort(400, "duplicated username")
 
         return jsonify({'success': 'OK'})
+
